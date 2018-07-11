@@ -1,20 +1,8 @@
 package application;
-	
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Properties;
-
-import org.apache.logging.log4j.core.LoggerContext;
-import org.apache.logging.log4j.core.config.properties.PropertiesConfiguration;
 
 import controller.MainController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {

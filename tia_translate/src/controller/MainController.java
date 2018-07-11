@@ -2,18 +2,14 @@ package controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.message.LoggerNameAwareMessage;
 
-import Logger.LoggerConsoleController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 
 public class MainController {
@@ -50,13 +46,14 @@ public class MainController {
 		logger.trace("Test");
 		logger.warn("Test");
 		logger.trace("Test");
+		System.out.println("Hallo");
 		Thread t1 = new Thread(new Runnable() {		
 			@Override
 			public void run() {
 				while(true) {
 					logger.debug("Das ist ein Test");
 					try {
-						Thread.currentThread().sleep(5000);
+						Thread.sleep(5000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

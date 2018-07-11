@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logger.LoggerConsoleController">
+   <children>
+      <ListView fx:id="listViewLog" />
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <Button mnemonicParsing="false" onAction="#handleRemoveSelected" text="Selektierte löschen" />
+            <Button fx:id="buttonClearLog" mnemonicParsing="false" onAction="#handleClearLog" text="Leeren" />
+            <ToggleButton fx:id="toggleButtonAutoScroll" mnemonicParsing="false" text="Auto-Scroll" />
+            <ChoiceBox fx:id="choiceBoxLogLevel" prefWidth="150.0" />
+        </items>
+      </ToolBar>
+   </children>
+</VBox>

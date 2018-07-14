@@ -104,7 +104,7 @@ public class LoggerConsoleController {
                                     /* Auto-Scroll + Select */
                                     if (toggleButtonAutoScroll.selectedProperty().get()) {
                                         listViewLog.scrollTo(listViewLog.getItems().size() - 1);
-                                        listViewLog.getSelectionModel().select(listViewLog.getItems().size() - 1);
+                                        //listViewLog.getSelectionModel().select(listViewLog.getItems().size() - 1);
                                     }
                                 }
                             });

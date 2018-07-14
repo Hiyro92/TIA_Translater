@@ -17,5 +17,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Adrian/Downloads/junique-1.0.4/junique-1.0.4/junique-1.0.4.jar" sourcepath="C:/Users/Adrian/Downloads/junique-1.0.4.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

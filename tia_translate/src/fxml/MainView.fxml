@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane minHeight="500.0" minWidth="500.0" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane minHeight="500.0" minWidth="500.0" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
    <children>
       <VBox prefHeight="634.0" prefWidth="894.0">
          <children>
@@ -20,10 +20,10 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                        <MenuItem fx:id="mButtonNew" mnemonicParsing="false" text="New Project" />
-                        <MenuItem fx:id="mButtonOpen" mnemonicParsing="false" text="Load Project" />
+                        <MenuItem fx:id="mButtonNew" mnemonicParsing="false" onAction="#actionNewProject" text="New Project" />
+                        <MenuItem fx:id="mButtonOpen" mnemonicParsing="false" onAction="#actionLoadProject" text="Load Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                    <MenuItem fx:id="mButtonClose" mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="mButtonClose" mnemonicParsing="false" onAction="#actionCloseApp" text="Close" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

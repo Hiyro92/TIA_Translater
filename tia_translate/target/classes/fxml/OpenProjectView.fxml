@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OpenProjectController">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OpenProjectController">
    <children>
       <TableView fx:id="table" prefHeight="400.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
         <columns>
@@ -21,6 +21,7 @@
       </TableView>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
+          <Button mnemonicParsing="false" onAction="#actionDeleteButtton" text="Delete" ButtonBar.buttonData="LEFT" />
           <Button mnemonicParsing="false" onAction="#actionOpenButtton" text="Open" />
           <Button mnemonicParsing="false" onAction="#actionCancelButtton" text="Cancel" />
         </buttons>

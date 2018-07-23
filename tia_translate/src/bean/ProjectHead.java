@@ -1,6 +1,5 @@
 package bean;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class ProjectHead {
@@ -9,12 +8,9 @@ public class ProjectHead {
 	private String name;
 	private Date creatingDate;
 	private int content;
+	private String tableName;
 		
-	public ProjectHead(String name, Date creatingDate, int content) {
-		super();
-		this.name = name;
-		this.creatingDate = creatingDate;
-		this.content = content;
+	public ProjectHead() {
 	}
 	
 	public String getName() {
@@ -43,6 +39,13 @@ public class ProjectHead {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}	
 	
 }

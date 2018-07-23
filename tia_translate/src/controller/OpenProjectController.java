@@ -1,30 +1,26 @@
 package controller;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import org.apache.poi.ss.usermodel.Table;
-
 import bean.ProjectHead;
+import dao.ProjectHeadDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class OpenProjectController {
 	
-	ObservableList<ProjectHead> testData = FXCollections.observableArrayList(
-			new ProjectHead("Test", new Date(), 50),
-			new ProjectHead("Test1", new Date(), 53),
-			new ProjectHead("Test2", new Date(), 41),
-			new ProjectHead("Test3", new Date(), 52)
-			);
-
     @FXML
     private TableView<ProjectHead> table;    
     @FXML
@@ -33,6 +29,8 @@ public class OpenProjectController {
     private TableColumn<ProjectHead, Integer> tcContent;
     @FXML
     private TableColumn<ProjectHead, Date> tcDate;
+    
+    ProjectHeadDAO projectHeadDAO = new ProjectHeadDAO();
 
     @FXML
     void initialize() {
@@ -54,21 +52,55 @@ public class OpenProjectController {
 				}
 			};
 		});
-    	
 		tcContent.setStyle("-fx-alignment: CENTER");
 		tcDate.setStyle("-fx-alignment: CENTER");
 		
-    	table.setItems(testData);
+    	updateTable();
+    }
+    
+    @FXML
+    void actionDeleteButtton(ActionEvent event) {
+    	ProjectHead head = null;
+    	head = table.getSelectionModel().getSelectedItem();
+    	if(head != null) {
+    		projectHeadDAO.delete(head);
+    	}
+    	else {
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("No Selcetion!");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Please select an Item");
+    		alert.show();
+    	}
+    	updateTable();
     }
     
     @FXML
     void actionCancelButtton(ActionEvent event) {
-
+    	Stage stage = (Stage)table.getScene().getWindow();
+    	stage.close();
     }
 
     @FXML
     void actionOpenButtton(ActionEvent event) {
-
+    	ProjectHead head = null;
+    	head = table.getSelectionModel().getSelectedItem();
+    	if(head != null) {
+    		MainViewController.controller.LoadProject(head);
+    		Stage stage = (Stage)table.getScene().getWindow();
+        	stage.close();
+    	}
+    	else {
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("No Selcetion!");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Please select an Item");
+    		alert.show();
+    	}
+    	updateTable();
     }
 
+    private void updateTable() {
+    	table.setItems(FXCollections.observableArrayList(projectHeadDAO.getAll()));
+    }
 }

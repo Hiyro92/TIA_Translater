@@ -1,6 +1,9 @@
 /Logger/
 /application/
 /fxml/
-/dao/
-/util/
+/res/
 /controller/
+/util/
+/dao/
+/bean/
+/loader/

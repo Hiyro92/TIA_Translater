@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -16,19 +17,21 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import loader.ImportLoader;
 
 
 public class Main extends Application {
 	
-	final private Logger LOGGER = LogManager.getLogger();	
+	final static private Logger LOGGER = LogManager.getLogger();	
 	final private static String APP_ID = "TIA_Translater";
 	final public static String DATABASE_PATH  = new File("Data.db").getAbsolutePath();
-
-	
+		
 
 	@Override
 	public void start(Stage primaryStage) {
+				
 		boolean alreadyRunning;
 		//Prueft ob Programm schon laeuft 
 		try {
@@ -36,7 +39,7 @@ public class Main extends Application {
 				//args als Nachrichten der neuen Programms
 				public String handle(String message) {			
 					Platform.runLater(() -> {
-						LogManager.getLogger().debug("Es kann nur eine instanz geÃ¶ffnet werden!");
+						LogManager.getLogger().debug("Es kann nur eine instanz geöffnet werden!");
 						primaryStage.setAlwaysOnTop(true);
 						
 						primaryStage.setAlwaysOnTop(false);
@@ -60,6 +63,7 @@ public class Main extends Application {
 			}
 
 			Scene scene = new Scene(root);
+			primaryStage.getIcons().add(new Image("/res/translation.png"));
 			primaryStage.setTitle("TIA Translater");
 			primaryStage.setScene(scene);
 			primaryStage.show();

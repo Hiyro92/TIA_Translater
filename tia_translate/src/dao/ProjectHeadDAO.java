@@ -30,7 +30,6 @@ public class ProjectHeadDAO {
 	private static final String CREATE_TABLE = "CREATE TABLE ? (ID INT PRIMARY KEY NOT NULL)";
 
 	
-	
 	public void add(ProjectHead data){
 		Connection c = null;
 		PreparedStatement ps = null;
@@ -67,6 +66,7 @@ public class ProjectHeadDAO {
 			
 		}
 	}
+	
 	public List<ProjectHead> getAll(){
 		Connection c = null;
 		PreparedStatement ps = null;

@@ -83,11 +83,10 @@ public class OpenProjectController {
 
     @FXML
     void actionOpenButtton(ActionEvent event) {
-    	ProjectHead head = null;
-    	head = table.getSelectionModel().getSelectedItem();
+    	ProjectHead head = table.getSelectionModel().getSelectedItem();
     	if(head != null) {
-    		MainViewController.controller.LoadProject(head);
     		Stage stage = (Stage)table.getScene().getWindow();
+    		stage.setUserData(head);
         	stage.close();
     	}
     	else {
